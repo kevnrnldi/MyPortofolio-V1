@@ -64,7 +64,7 @@ let numbersOfRings = [0];
 
 export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
-  const groupRef = useRef();
+  const groupRef = useRef<any>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
   const defaultProps = {
@@ -239,7 +239,7 @@ export function WebGLRendererConfig() {
 
   useEffect(() => {
     gl.setPixelRatio(window.devicePixelRatio);
-    gl.setSize(size.width, size.height);
+    gl.setSize(size.width, size.height, false);
     gl.setClearColor(0xffaaff, 0);
   }, []);
 
