@@ -1,29 +1,32 @@
 import React from "react";
-import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
-import { testimonials } from "@/data";
+import { techStack } from "@/data";
 import { companies } from "@/data";
+import { InfiniteMovingCards } from "@/components/ui/InfiniteMoving";
 
 const Clients = () => {
   return (
-    <div className=" py-20" id="testimonials">
-      <h1 className="heading">
-        Kind words from
-        <span className="text-purple">satisfied clients</span>
+    <div className=" py-30" id="techStack">
+      <h1 className="heading lg:text-[4rem]">
+        What I <span className="text-[#A9A9A9]">Build with</span>
       </h1>
-      <div className="flex mt-10 flex-col items-center">
-        <InfiniteMovingCards
-          items={testimonials}
-          direction="right"
-          speed="slow"
-        />
-
-        <div className="flex gap-4 flex-wrap items-center  justify-center md:gap-16 mt-13">
-          {companies.map(({ id, img, name, nameImg }) => (
-            <div key={id} className="flex md:max-w-60 max-w-32 gap-2">
-              <img src={img} alt={name} className="md:w-10 w-5" />
-              <img src={nameImg} alt={name} className="md:w-24 w-20" />
-            </div>
-          ))}
+      <div className="flex  flex-col items-center mt-10">
+        <div className="flex flex-wrap items-center  justify-center md:gap-16 py-2 mt-5">
+          <h2 className="flex items-center tracking-[6px] font-bold ">
+            <span className="w-2 h-2 mr-3  justify-center inline-block bg-[#22c55e] rounded-3xl "></span>
+            DATA, DECISIONS & AUTOMATION
+          </h2>
+          <InfiniteMovingCards items={techStack} speed="normal" />
+        </div>
+        <div className="flex  flex-wrap items-center  justify-center md:gap-16 py-5">
+          <h2 className="flex items-center tracking-[6px] font-bold ">
+            <span className="w-2 h-2 mr-3  justify-center inline-block bg-[#22c55e] rounded-3xl "></span>
+            AI, APPS & INFRASTRUCTURE
+          </h2>
+          <InfiniteMovingCards
+            items={techStack}
+            speed="normal"
+            direction="right"
+          />
         </div>
       </div>
     </div>

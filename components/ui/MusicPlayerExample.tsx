@@ -23,7 +23,7 @@ export function CustomAudioPlayer() {
 
       <button
         onClick={togglePlay}
-        className="flex items-center justify-center w-12 h-12 bg-white text-black rounded-full hover:scale-105 transition active:scale-95 shadow-md"
+        className="flex items-center justify-center w-10 h-10 bg-white text-black rounded-full hover:scale-105 transition active:scale-95 shadow-md"
       >
         {isPlaying ? (
           <FaPause className="text-sm" />

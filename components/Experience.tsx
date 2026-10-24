@@ -1,44 +1,52 @@
 import React from "react";
-import { Button } from "./ui/MovingBorders";
-import { workExperience } from "@/data";
+import { Timeline } from "./ui/Timeline";
+
+const Card = ({
+  role,
+  org,
+  points,
+}: {
+  role: string;
+  org: string;
+  points: string[];
+}) => (
+  <div className="rounded-2xl border border-zinc-500/30 bg-[#111113] p-5 md:p-6">
+    <h4 className="text-lg font-bold text-white md:text-xl">{role}</h4>
+    <p className="mt-1 text-sm text-zinc-400">{org}</p>
+    <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-zinc-300 md:text-base">
+      {points.map((p) => (
+        <li key={p}>{p}</li>
+      ))}
+    </ul>
+  </div>
+);
+
+const data = [
+  {
+    title: "2025",
+    content: (
+      <Card
+        role="Teaching Assistant, Web Programming"
+        org="Informatics Engineering, University of Bengkulu"
+        points={[
+          "Guided students in building dynamic web applications by integrating HTML and CSS frontends with JavaScript backend logic.",
+          "Facilitated practical sessions on client-server architecture, focusing on CRUD operations and MySQL connections.",
+        ]}
+      />
+    ),
+  },
+];
 
 const Experience = () => {
   return (
-    <div className=" py-20" id="experience">
-      <h1 className="heading">
-        My <span className="text-purple">Work Experience</span>
+    <section className="py-20 mt-20" id="experience">
+      <h1 className="heading text-[4rem]">
+        My <span className="text-[#A9A9A9]">Work Experience</span>
       </h1>
-      <div className="w-full mt-12 lg:grid-cols-4 grid grid-cols-1 gap-10">
-        {workExperience.map((card) => (
-          <Button
-            key={card.id}
-            duration={Math.floor(Math.random() * 10000) + 1500}
-            borderRadius="1.75rem"
-            borderClassName="border-2 w-32 opacity-100 bg-[radial-gradient(#CBACF9_40%,transparent_70%)]"
-            className="flex-1 flex text-white border-neutral-200 dark:border-slate-800"
-          >
-            <div
-              className="flex lg:flex-row lg:items-center p-3 py-6 md:p-5 
-                        lg:p-10 flex-col gap-2"
-            >
-              <img
-                src={card.thumbnail}
-                alt={card.thumbnail}
-                className="lg:w-32 md:w-20 w-16"
-              />
-              <div className="lg:ms-5 ">
-                <h1 className="font-bold text-start text-xl md:text-2xl">
-                  {card.title}
-                </h1>
-                <p className="text-start text-white-100 mt-3 font-semibold">
-                  {card.desc}
-                </p>
-              </div>
-            </div>
-          </Button>
-        ))}
+      <div className="mt-10">
+        <Timeline data={data} />
       </div>
-    </div>
+    </section>
   );
 };
 

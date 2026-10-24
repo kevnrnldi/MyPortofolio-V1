@@ -16,6 +16,7 @@ import {
   IconMail,
   IconBrandGithub,
   IconBrandLinkedin,
+  IconBook,
 } from "@tabler/icons-react";
 
 const iconClass = "h-full w-full text-neutral-300";
@@ -29,9 +30,14 @@ const links = [
     href: "#projects",
   },
   {
-    title: "Testimonials",
-    icon: <IconMessage className={iconClass} />,
-    href: "#testimonials",
+    title: "Publications",
+    icon: <IconBook className={iconClass} />,
+    href: "#publications",
+  },
+  {
+    title: "Technologies",
+    icon: <IconMail className={iconClass} />,
+    href: "#techStack",
   },
   {
     title: "Contact",

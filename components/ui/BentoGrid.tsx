@@ -7,7 +7,7 @@ import { CanvasText } from "@/components/ui/CanvasText";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import dynamic from "next/dynamic";
-import { IoCopyOutline } from "react-icons/io5";
+import { LuDownload } from "react-icons/lu";
 import { NoiseBackground } from "./NoiseBackground";
 
 const Lottie = dynamic(() => import("react-lottie"), {
@@ -20,6 +20,7 @@ const noiseColors = [
   "rgb(161, 161, 170)",
   "rgb(82, 82, 91)",
 ];
+
 export const BentoGrid = ({
   className,
   children,
@@ -60,9 +61,19 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const handleCopy = () => {
-    navigator.clipboard.writeText("HIDUP JOKOWI");
-    setCopied(true);
+  const [downloaded, setDownloaded] = useState(false);
+
+  const handleDownload = () => {
+    const cvUrl = "/CV.pdf";
+
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download = "CV-Muhammad-Kevin-Rinaldi.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setDownloaded(true);
+    setTimeout(() => setDownloaded(false), 4000);
   };
   const [copied, setCopied] = useState(false);
 
@@ -222,11 +233,11 @@ export const BentoGridItem = ({
                 </div>
 
                 <MagicButton
-                  title={copied ? "Email Copied" : "Copy my email"}
-                  icon={<IoCopyOutline />}
+                  title={copied ? "CV Downloaded" : "Download my CV"}
+                  icon={<LuDownload />}
                   position="left"
                   otherClasses="!bg-[#161a31]"
-                  handleClick={handleCopy}
+                  handleClick={handleDownload}
                 />
               </div>
             )}

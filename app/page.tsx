@@ -15,6 +15,7 @@ import { FamilyButton } from "@/components/ui/FamilyButton";
 import { SmoothCursor } from "@/components/ui/SmoothCursor";
 import { CustomAudioPlayer } from "@/components/ui/MusicPlayerExample";
 import { AudioProvider } from "@/components/ui/AudioProvider";
+import { RecentPublications } from "@/components/RecentPublications";
 
 export default function Home() {
   return (
@@ -37,8 +38,9 @@ export default function Home() {
           <Hero />
           <Grid />
           <RecentProjects />
-          {/* <Clients /> */}
-          {/* <Experience /> */}
+          <RecentPublications />
+          <Clients />
+          <Experience />
           <Approach />
           <Footer />
         </div>

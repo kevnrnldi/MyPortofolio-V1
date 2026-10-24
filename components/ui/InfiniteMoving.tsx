@@ -11,9 +11,8 @@ export const InfiniteMovingCards = ({
   className,
 }: {
   items: {
-    quote: string;
+    icon: string;
     name: string;
-    title: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -63,9 +62,9 @@ export const InfiniteMovingCards = ({
       if (speed === "fast") {
         containerRef.current.style.setProperty("--animation-duration", "20s");
       } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
+        containerRef.current.style.setProperty("--animation-duration", "25s");
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
+        containerRef.current.style.setProperty("--animation-duration", "45s");
       }
     }
   };
@@ -73,57 +72,33 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 w-screen overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller mt-[-35px] relative z-20 max-w-8xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className,
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex w-max min-w-full shrink-0 flex-nowrap gap-16 py-4",
+          "flex w-max min-w-full shrink-0 flex-nowrap ",
           start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
         {items.map((item, idx) => (
           <li
-            key={`${item.name}-${idx}`}
-            className="relative w-[90vw] max-w-full shrink-0 rounded-2xl border border-b-0 border-slate-800 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] p-5 md:p-16 md:w-[60vw] "
-            style={{
-              animationDelay: `${idx * 0.5}s`,
-              background: "rgb(4,7,29)",
-              backgroundColor:
-                "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-            }}
+            className="relative z-20 flex flex-col items-center gap-2 w-[200px] shrink-0"
+            key={item.name}
           >
-            <blockquote>
-              <div
-                aria-hidden="true"
-                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-              ></div>
-              <span className="relative z-20 text-lg leading-[1.6] font-normal  text-white">
-                {item.quote}
+            <img
+              src={item.icon}
+              alt={item.name}
+              className="w-[3rem] h-[3rem]"
+            />
+            <div className="relative z-20  flex flex-row items-center">
+              <span className="text-[20px] leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
+                {item.name}
               </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
-                <span className="flex flex-col gap-1">
-                  <div className="me-3">
-                    <img
-                      src="/profile.svg"
-                      className="rounded-full"
-                      alt="profile"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-xl leading-[1.6] font-bold text-white ">
-                      {item.name}
-                    </span>
-                    <span className="text-md leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
-                      {item.title}
-                    </span>
-                  </div>
-                </span>
-              </div>
-            </blockquote>
+            </div>
           </li>
         ))}
       </ul>
