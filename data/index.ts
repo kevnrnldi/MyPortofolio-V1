@@ -170,20 +170,28 @@ export const projects = [
 
 export const techStack = [
   {
-    icon: "/re.svg",
-    name: "ReactJs",
+    icon: "/DATA/langflow.png",
+    name: "Langflow",
   },
   {
-    icon: "/git.svg",
-    name: "GitHub",
+    icon: "/DATA/mongo.png",
+    name: "MongoDB",
   },
   {
-    icon: "/tail.svg",
-    name: "Tailwind Css",
+    icon: "/DATA/mysql.png",
+    name: "MySQL",
   },
   {
-    icon: "/next.svg",
-    name: "NextJs",
+    icon: "/DATA/postgresql.png",
+    name: "PostgreSQL",
+  },
+  {
+    icon: "/DATA/python.jpg",
+    name: "Python",
+  },
+  {
+    icon: "/DATA/TensorFlow.png",
+    name: "TensorFlow",
   },
 ];
 

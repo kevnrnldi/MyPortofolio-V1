@@ -51,7 +51,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
       {/* Tag Audio dipasang di sini agar TIDAK MATI saat popup silang diklik */}
       <audio
         ref={audioRef}
-        src="/myMusic.mp3"
+        src="/persona.mp3"
         loop
         onEnded={() => setIsPlaying(false)}
       />
