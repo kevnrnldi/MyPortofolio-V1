@@ -90,7 +90,7 @@ export const projects = [
     id: 2,
     title: "SIMBK UNIB - Student Counseling & Case Reporting Platform",
     des: "A confidential web-based counseling and campus reporting system for Universitas Bengkulu featuring multi-role administration, real-time case tracking, status filtering, and automated report exports in PDF/Excel.",
-    img: "/siupabkl.png",
+    img: "/eco.png",
     iconLists: [
       "/re.svg",
       "/tail.svg",
@@ -122,7 +122,7 @@ export const projects = [
     id: 5,
     title: "EcoBank - Waste Inventory & Financial System",
     des: "Automate waste deposit tracking, dynamic weight-to-currency conversions, and user balance management with a secure backend architecture.",
-    img: "/ecobank.png",
+    img: "/Sampah.png",
     iconLists: ["/re.svg", "/tail.svg", "/Laravel.svg.webp", "/ts.svg"],
     link: "/ui.ecobank.com",
   },
@@ -174,24 +174,67 @@ export const techStack = [
     name: "Langflow",
   },
   {
-    icon: "/DATA/mongo.png",
+    icon: "/DATA/mongoDB.svg",
     name: "MongoDB",
   },
   {
-    icon: "/DATA/mysql.png",
+    icon: "/DATA/MySQL.svg",
     name: "MySQL",
   },
   {
-    icon: "/DATA/postgresql.png",
+    icon: "/DATA/PostgresSQL.svg",
     name: "PostgreSQL",
   },
   {
-    icon: "/DATA/python.jpg",
+    icon: "/DATA/Python.svg",
     name: "Python",
   },
   {
-    icon: "/DATA/TensorFlow.png",
+    icon: "/DATA/TensorFlow.svg",
     name: "TensorFlow",
+  },
+  {
+    icon: "/DATA/Postman.svg",
+    name: "Postman",
+  },
+];
+
+export const techStack2 = [
+  {
+    icon: "/AI/Docker.svg",
+    name: "Docker",
+  },
+  {
+    icon: "/AI/express.png",
+    name: "Express",
+  },
+  {
+    icon: "/next.svg",
+    name: "NextJs",
+  },
+  {
+    icon: "/AI/Node.js.svg",
+    name: "NodeJs",
+  },
+  {
+    icon: "/AI/React.svg",
+    name: "React",
+  },
+  {
+    icon: "/AI/Typescript.svg",
+    name: "Typescript",
+  },
+  {
+    icon: "/AI/Vue.js.svg",
+    name: "Vue",
+  },
+  {
+    icon: "/AI/Github.svg",
+    name: "Github",
+  },
+  {
+    icon: "/AI/Laravel.svg",
+    name: "Laravel",
   },
 ];
 

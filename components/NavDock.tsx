@@ -18,6 +18,7 @@ import {
   IconBrandLinkedin,
   IconBook,
 } from "@tabler/icons-react";
+import { GrTechnology } from "react-icons/gr";
 
 const iconClass = "h-full w-full text-neutral-300";
 
@@ -36,7 +37,7 @@ const links = [
   },
   {
     title: "Technologies",
-    icon: <IconMail className={iconClass} />,
+    icon: <GrTechnology className={iconClass} />,
     href: "#techStack",
   },
   {

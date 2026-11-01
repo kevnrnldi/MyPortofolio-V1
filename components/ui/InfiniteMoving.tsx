@@ -21,15 +21,26 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
     addAnimation();
   }, []);
-  const [start, setStart] = useState(false);
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
+      if (scrollerRef.current.dataset.cloned === "true") return;
+      scrollerRef.current.dataset.cloned = "true";
+
       const scrollerContent = Array.from(scrollerRef.current.children);
 
+      // Duplikasi elemen sebanyak 2 kali agar looping mulus tanpa jeda putus
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        if (scrollerRef.current) {
+          scrollerRef.current.appendChild(duplicatedItem);
+        }
+      });
       scrollerContent.forEach((item) => {
         const duplicatedItem = item.cloneNode(true);
         if (scrollerRef.current) {
@@ -42,6 +53,7 @@ export const InfiniteMovingCards = ({
       setStart(true);
     }
   }
+
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
@@ -57,45 +69,47 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
         containerRef.current.style.setProperty("--animation-duration", "20s");
       } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "25s");
+        containerRef.current.style.setProperty("--animation-duration", "40s");
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "45s");
+        containerRef.current.style.setProperty("--animation-duration", "80s");
       }
     }
   };
+
   return (
     <div
       ref={containerRef}
       className={cn(
-        "scroller mt-[-35px] relative z-20 max-w-8xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className,
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex w-max min-w-full shrink-0 flex-nowrap ",
+          "flex w-max min-w-full shrink-0 flex-nowrap gap-8 py-4",
           start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
         {items.map((item, idx) => (
           <li
-            className="relative z-20 flex flex-col items-center gap-2 w-[200px] shrink-0"
-            key={item.name}
+            className="relative z-25 flex flex-col items-center justify-center w-[9rem] shrink-0 rounded-2xl p-4"
+            key={`${item.name}-${idx}`}
           >
             <img
               src={item.icon}
               alt={item.name}
-              className="w-[3rem] h-[3rem]"
+              className="w-[3rem] h-[3rem] object-contain"
             />
-            <div className="relative z-20  flex flex-row items-center">
-              <span className="text-[20px] leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
+            <div className="relative z-20 flex flex-row items-center mt-2">
+              <span className="text-[16px] leading-[1.6] font-normal text-neutral-300 text-center">
                 {item.name}
               </span>
             </div>
