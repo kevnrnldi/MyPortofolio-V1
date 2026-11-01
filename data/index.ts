@@ -90,7 +90,7 @@ export const projects = [
     id: 2,
     title: "SIMBK UNIB - Student Counseling & Case Reporting Platform",
     des: "A confidential web-based counseling and campus reporting system for Universitas Bengkulu featuring multi-role administration, real-time case tracking, status filtering, and automated report exports in PDF/Excel.",
-    img: "/eco.png",
+    img: "/Eco.png",
     iconLists: [
       "/re.svg",
       "/tail.svg",
